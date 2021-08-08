@@ -1,0 +1,28 @@
+<div class="color-change">
+	
+	<div class="settings">
+		<p>SETTINGS</p>
+
+		<p>TIME: {{timer}}</p>
+
+		<button *ngIf="!timerActive" (click)="startTimer()">START TIMER</button>
+		<button *ngIf="timerActive" (click)="stopTimer()">STOP TIMER</button>
+
+		<button (click)="timer = 0">RESET TIMER</button>
+
+		<br><br>
+
+		<textarea (change)="setLyrics($event)"></textarea>
+
+		<!-- <p *ngFor="let lyric of lyrics">
+			[{{lyric.time}}] {{lyric.text}}
+		</p> -->
+	</div>
+
+	<ng-container *ngIf="lyrics.length > 0">
+		<h1 class="lyric primary" *ngIf="activeLyric <= lyrics.length-2 && lyrics[activeLyric].time - timer <= 10">{{lyrics[activeLyric].text}}</h1>
+		<h2 class="secondary lyric" *ngIf="activeLyric <= lyrics.length-2 && lyrics[activeLyric+1].time - timer <= 10">{{lyrics[activeLyric+1].text}}</h2>
+		<h3 class="tertiary lyric" *ngIf="activeLyric <= lyrics.length-3 && lyrics[activeLyric+2].time - timer <= 10">{{lyrics[activeLyric+2].text}}</h3>
+	</ng-container>
+
+</div>

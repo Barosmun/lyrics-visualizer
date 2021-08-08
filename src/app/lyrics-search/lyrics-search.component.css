@@ -1,0 +1,169 @@
+.lyric {
+	text-align: center;
+    position: absolute;
+    color: rgba(0,0,0,0);
+    width: 100%;
+    word-wrap: none;
+    vertical-align: middle;
+    top: 75%;
+    z-index: 50;
+    visibility: hidden;
+}
+
+.options-bar {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.album-art {
+    width: 256px;
+    height: 256px;
+    background-position: center;
+    background-size: cover;
+}
+
+.error{
+    position: absolute;
+    color: rgb(244, 244, 244);
+    font-size: xxx-large;
+    top: 20%;
+    visibility: visible;
+    width: 100%;
+    text-align: center;
+}
+
+.primary{
+	color: rgb(255, 255, 255);
+    font-size: xxx-large;
+    top: 20%;
+    animation: s-to-p 0.2s ease-in forwards;
+    visibility: visible;
+}
+
+.secondary{
+	color: rgba(255, 255, 255, 0.67);
+    font-size: xx-large;
+    top: 28%;
+    animation: t-to-s 0.2s ease-in forwards;
+    visibility: visible;
+}
+.tertiary{
+	color: rgba(255, 255, 255, 0.33);
+    font-size: x-large;
+    top: 36%;
+    animation: z-to-t 0.2s ease-in forwards;
+    visibility: visible;
+}
+.last{
+    color: rgba(255, 255, 255, 0.33);
+    font-size: x-large;
+    top: 16%;
+    animation: p-to-l 0.2s ease-in forwards;
+    visibility: visible;
+}
+.zero{
+    animation: l-to-z 0.2s ease-in forwards;
+    visibility: visible;
+}
+
+@keyframes z-to-t {
+    0% {
+        color: rgba(255, 255, 255, 0);
+        top: 42%;
+        font-size: medium;
+    }
+    100% {
+        color: rgba(255, 255, 255, 0.33);
+        top: 36%;
+        font-size: large;
+    }
+}
+@keyframes t-to-s {
+    0% {
+        color: rgba(255, 255, 255, 0.33);
+        top: 36%;
+        font-size: large;
+    }
+    100% {
+        color: rgba(255, 255, 255, 0.67);
+        font-size: x-large;
+        top: 28%;
+    }
+}
+@keyframes s-to-p {
+    0% {
+        color: rgba(255, 255, 255, 0.67);
+        font-size: x-large;
+        top: 28%;
+    }
+    100% {
+        color: rgb(255, 255, 255);
+        font-size: xx-large;
+        top: 20%;
+    }
+}
+@keyframes p-to-l {
+    0% {
+        color: rgb(255, 255, 255);
+        font-size: xx-large;
+        top: 20%;
+    }
+    100% {
+        color: rgba(255, 255, 255, 0.33);
+        font-size: large;
+        top: 16%;
+    }
+}
+@keyframes l-to-z {
+    0% {
+        color: rgba(255, 255, 255, 0.33);
+        font-size: large;
+        top: 16%;
+    }
+    100% {
+        color: rgba(255, 255, 255, 0);
+        font-size: x-small;
+        top: 12%;
+        visibility: hidden;
+    }
+}
+
+@keyframes bgcolor {
+    0% {
+        background-color: #45a3e5
+    }
+
+    30% {
+        background-color: #66bf39
+    }
+
+    60% {
+        background-color: #eb670f
+    }
+
+    90% {
+        background-color: #f35
+    }
+
+    100% {
+        background-color: #864cbf
+    }
+}
+
+.color-change {
+    position: absolute;
+    -webkit-animation: bgcolor 20s infinite;
+    animation: bgcolor 10s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.settings {
+    background-color: rgba(230,230,230,0.3);
+    color: white;
+}

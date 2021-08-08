@@ -1,0 +1,43 @@
+<div class="color-change">
+	<div class="settings">
+		<br />
+		<div class="options-bar">
+			<div>
+				<label for="key"> Spotify Access Token: </label>
+				<input #key type=text [(ngModel)]="accessToken">
+				&nbsp;
+				<a href="https://developer.spotify.com/console/get-users-currently-playing-track/" target="_blank">Get Access Token</a>
+			</div>
+			<!-- <div>
+				<label for="offsetInput"> Adjust Offset: </label>
+				<input #offsetInput type=number [(ngModel)]="offset">
+			</div> -->
+		</div>
+		
+		<br />
+		<button (click)="getCurrentSong()"> GET Current Song </button>
+
+		<div *ngIf="title && artist">
+			<h4>Now Playing: {{title}} by {{artist}}</h4>
+		</div>
+		<div *ngIf="!title || !artist">
+			<h4>Now Playing: </h4>
+		</div>
+	</div>
+	<!-- <ng-container>
+		<h3 class="lyric secondary" *ngIf="showLyric > 0">{{lyrics[showLyric-1].text}}</h3>
+		<h1 class="lyric primary" *ngIf="showLyric <= lyrics.length-1">{{lyrics[showLyric].text}}</h1>
+		<h2 class="secondary lyric" *ngIf="showLyric <= lyrics.length-2">{{lyrics[showLyric+1].text}}</h2>
+		<h3 class="tertiary lyric" *ngIf="showLyric <= lyrics.length-3">{{lyrics[showLyric+2].text}}</h3>
+	</ng-container> -->
+
+	<!-- [hidden]="activeLyric > i + 1 || activeLyric < i -2" -->
+	<h1 *ngFor="let lyric of lyrics; let i = index" class="lyric"
+		[ngClass]="{'primary': activeLyric === i, 'secondary': activeLyric === i - 1, 'tertiary': activeLyric === i - 2,
+					'last': activeLyric === i + 1, 'zero': activeLyric > i + 1}">
+		{{lyrics[i].text}}
+	</h1>
+	<h1 *ngIf="error" class="error"> Lyrics could not be loaded for this song </h1>
+
+	<div class="album-art" [ngStyle]="albumArtStyle"></div>
+</div>
